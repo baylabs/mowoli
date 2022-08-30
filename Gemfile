@@ -7,6 +7,7 @@ gem 'rails', git: 'https://github.com/rails/rails.git', branch: '4-2-stable'
 # ...and for deploying standalone
 #gem 'sqlite3', platform: 'ruby'
 gem 'sqlite3', '~> 1.3.6', '< 1.4'
+
 # gem "rack"
 gem "json", ">= 2.3.0"
 # gem "rdoc", ">= 6.3.1"
