@@ -44,6 +44,10 @@ class Order < ActiveRecord::Base
   after_create :create_export
   before_destroy :destroy_export
 
+  # JIRA 375 - Adding order update to web-service call
+  after_update :update_export
+  # End 
+  
   def self.purge_expired
     where('created_at < ?', Time.zone.now.beginning_of_day).destroy_all
   end
@@ -85,7 +89,13 @@ class Order < ActiveRecord::Base
   def create_export
     export.create
   end
-
+  
+  # JIRA 375 - Adding order update to web-service call
+  def update_export
+    export.create
+  end
+  # End
+  
   def destroy_export
     export.delete
   end
